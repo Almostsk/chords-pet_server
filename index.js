@@ -4,6 +4,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv'
 
+import chordsRoutes from './routes/chords.js';
+import artistRoutes from './routes/artist.js';
+import songsRoutes from './routes/song.js';
 
 
 const app = express();
@@ -16,6 +19,10 @@ app.use(cors());
 
 // app.use('/posts', postsRoutes);
 // app.use('/user', userRoutes)
+
+app.use('/chords', chordsRoutes);
+app.use('/artist', artistRoutes);
+app.use('/songs', songsRoutes);
 
 app.get('/', (req, res) => {
     res.send('Helloo here !')
