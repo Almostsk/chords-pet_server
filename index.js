@@ -7,6 +7,7 @@ import dotenv from 'dotenv'
 import chordsRoutes from './routes/chords.js';
 import artistRoutes from './routes/artist.js';
 import songsRoutes from './routes/song.js';
+import searchRoutes from './routes/search.js';
 
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(cors());
 app.use('/chords', chordsRoutes);
 app.use('/artist', artistRoutes);
 app.use('/songs', songsRoutes);
+app.use('/search', searchRoutes);
 
 app.get('/', (req, res) => {
     res.send('Helloo here !')

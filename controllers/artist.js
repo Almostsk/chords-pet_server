@@ -9,10 +9,10 @@ export const createArtist = async (req, res) => {
 
     const newArtist = new Artist({
         name: data.name,
-        img: {
+        img: req.file ? {
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
             contentType: 'image/png'
-        }
+        } : null
     });
     try {
         await newArtist.save();
